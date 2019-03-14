@@ -5,7 +5,7 @@ Programming exersize for full stack developer position.
 
 Implements two REST apis for adding and retrieving creditcard details
 # Add Credit Card: #
-## POST http://host:8080/api/v1/card##
+## POST http://host:8080/api/v1/card ##
 Request Body is a JSON representation of a Customer/Card with this format:
 
   {"name":"Robert","cardNumber":"000000","cardLimit":134500}
