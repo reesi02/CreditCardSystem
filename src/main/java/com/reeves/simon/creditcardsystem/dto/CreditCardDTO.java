@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+/**
+ * Database Entity and data transport entity for credit card
+ * @author reesi02
+ *
+ */
 @Entity
 public class CreditCardDTO {
 

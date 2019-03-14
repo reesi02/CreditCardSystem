@@ -25,12 +25,20 @@ public class CreditCardController {
     @Autowired
     private CreditCardValidator creditCardValidator;
 
+    /**
+     * REST endpoint to creating an account with a POST request
+     * Request body should contain a JSON representation of CreditCardDTO
+     * 
+     * @param card
+     * @return ResponseEntity 201(CREATED) or 400(BAD REQUEST)
+     */
     @RequestMapping(value="/api/v1/card",method=RequestMethod.POST)
     public ResponseEntity<?> addCreditCard(@RequestBody CreditCardDTO card) {
         CreditCardValidator.ValidationResults result = creditCardValidator.validate(card);
         if ( result != CreditCardValidator.ValidationResults.OK) {
             // 400 Bad request
             ErrorResponse errorBody = new ErrorResponse();
+            // include details of the request failure in the error response body
             errorBody.setMsgCode(result.toString());
             ResponseEntity<ErrorResponse> response = new ResponseEntity<ErrorResponse>(errorBody,HttpStatus.BAD_REQUEST);
             return response;
@@ -38,7 +46,7 @@ public class CreditCardController {
 
         // new cards are always assigned a balance of 0
         card.setBalance(0L);
-
+        // save(or update) entity in the repository
         creditCardRepo.save(card);
 
         // CREATED 201 
@@ -47,6 +55,11 @@ public class CreditCardController {
 
     }
 
+    /**
+     * REST endpoint to retrieve all the cards from the repository
+     * 
+     * @return List of all stored creditcards
+     */
     @RequestMapping(value="/api/v1/card", method=RequestMethod.GET)
     public List<CreditCardDTO> getAllCards(){
         List<CreditCardDTO> allCards = new ArrayList<>();
