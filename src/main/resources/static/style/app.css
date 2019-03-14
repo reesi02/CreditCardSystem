@@ -1,0 +1,28 @@
+body{
+	margin:10px;
+}
+
+.table-header{
+	border:1px solid grey;
+	text-align: center;
+	background: lightgray;
+}
+
+.table-cell{
+	border:1px solid grey;
+	text-align: center;
+}
+
+.field-text{
+	margin-top:6px;
+	margin-bottom:4px;
+}
+
+.error{
+	color:red;
+	padding-top:6px;
+}
+
+.debt{
+	color:red;
+}

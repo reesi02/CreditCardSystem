@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Credit Card System</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+        <link rel="stylesheet" href="/style/app.css">
+    </head>
+    <body ng-app="creditCardApp">
+        <div ng-controller="creditCardController">
+            <h1>Credit Card System</h1>
+            <h2>Add</h2>
+
+            <div class="container-fluid">
+                <!-- Name -->
+                <div class="row field-text">Name</div>
+                <div class="row">
+                    <input  class="form-control col-4"
+                            ng-model="name"
+                            maxlength="200"/>
+                    <span  ng-if="error=='INVALID_NAME'" 
+                           class="col-4 error">Invalid Customer Name</span>
+                </div>
+                
+                <!--  Card Number -->
+                <div class="row field-text">Card Number</div>
+                <div class="row">
+                    <input class="form-control col-4"
+                           ng-model="cardNumber"
+                           maxlength="19"/>
+                           <!-- with more time I would try and restrict entering non numeric characters for card number -->
+                    <span  ng-if="error=='INVALID_CARD_NO'" 
+                           class="col-4 error">Invalid Card Number</span>
+                </div>
+
+                <!-- Card Limit -->
+                <div class="row field-text">Limit</div>
+                <div class="row">
+                    <input class="form-control col-4"
+                           ng-model="cardLimit"/>
+                    <span ng-if="error==='INVALID_LIMIT'"
+                           class="col-4 error">Invalid Card Limit</span>
+                </div>
+                <div class="row field-text">
+                    <button ng-click="addCard()"
+                            class="btn btn-primary">Add</button>
+                    <span class="col-4 error" ng-if="error=='UNKNOWN_ERROR'">An recognised error occurred</span>
+                </div>
+            </div>
+
+            
+            <div>
+                <h2>Existing Cards</h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <span class="col-3 table-header">Name</span>
+                        <span class="col-3 table-header">Card Number</span>
+                        <span class="col-3 table-header">Balance</span>
+                        <span class="col-3 table-header">Limit</span>
+                    </div>
+                    <div ng-repeat="card in existingCards" class="row">
+                        <span class="col-3 table-cell">{{card.name}}</span>
+                        <span class="col-3 table-cell">{{card.cardNumber}}</span>
+                        <span class="col-3 table-cell" ng-class="card.balance<0?'debt':''">£{{card.balance}}</span>
+                        <span class="col-3 table-cell">£{{card.cardLimit}}</span>
+                    </div>
+                    <div ng-if="error=='FAILED_TO_GET_CARDS'" class="row">
+                        <span  class="col-12 table-cell error">Failed to retrieve card data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/app/app.js"></script>
+        <script src="/app/controller.js"></script>
+    </body>
+</html>
