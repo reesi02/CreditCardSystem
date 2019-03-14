@@ -4,8 +4,8 @@
 Programming exersize for full stack developer position.
 
 Implements two REST apis for adding and retrieving creditcard details
-1. Add Credit Card:
-**POST http://host:8080/api/v1/card**
+# Add Credit Card: #
+## POST http://host:8080/api/v1/card##
 Request Body is a JSON representation of a Customer/Card with this format:
 
   {"name":"Robert","cardNumber":"000000","cardLimit":134500}
@@ -17,33 +17,36 @@ If the request fails because of an invalid request, the response code will be 40
  * INVALID_NAME,
  * INVALID_LIMIT
   
-2. Get All Credit Cards
-** GET http://<host>:8080/api/v1/card **
+# Get All Credit Cards #
+## GET http://<host>:8080/api/v1/card ##
 This api will return an array of credit card records. The objects in the response have the following format:
 {   "name":"robert",
     "cardNumber":"000000",
     "cardLimit":100000,
     "balance":0
 }
+
 ** Financial Records **
 The financial records are transmitted and stored in pence, so to obtain the value in pounds, division by 100 is necessary.
 
 ** Automated Testing **
 Unit and Integration testing of the REST API have been provided and can be found here:
-* Card Validator Tests: src/test/java/com/reeves/simon/business/CreditCardValidatorTest.java
+* Card Validator Tests
+`src/test/java/com/reeves/simon/business/CreditCardValidatorTest.java`
 Contains unit test cases to verify the behaviour of the card validation routine.
-*  Integration Test: /src/test/java/com/reeves/simon/IntegrationTest.java
+*  Integration Test
+`/src/test/java/com/reeves/simon/IntegrationTest.java`
 Integration test which starts the REST service on a random port, and then make REST requests to the sevice to create an entity. The test then gets all the cards to verify the card details were created successfully.
 
 ** Running **
 After cloning the source, you can build the jar file form the root directory (which contains pom.mxl) with
-mvn comile
+`mvn comile`
 
 You can run the test with
-mvn test
+`mvn test`
 
 You can start the service with
-java -jar target/CreditCardSystem-1.0.0-SNAPSHOT.jar
+`java -jar target/CreditCardSystem-1.0.0-SNAPSHOT.jar`
 
 ** Web UI **
 When the service is running the Web UI is accessible from http://<host>:8080/. 
