@@ -18,7 +18,7 @@ If the request fails because of an invalid request, the response code will be 40
  * INVALID_LIMIT
   
 # Get All Credit Cards #
-## GET http://<host>:8080/api/v1/card ##
+## GET http://host:8080/api/v1/card ##
 This api will return an array of credit card records. The objects in the response have the following format:
 {   "name":"robert",
     "cardNumber":"000000",
