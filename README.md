@@ -50,6 +50,10 @@ You can run the test with
 
 `mvn test`
 
+You can create the JAR file with
+
+`mvn package`
+
 You can start the service with
 
 `java -jar target/CreditCardSystem-1.0.0-SNAPSHOT.jar`
