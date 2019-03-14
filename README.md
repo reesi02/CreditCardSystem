@@ -26,19 +26,22 @@ This api will return an array of credit card records. The objects in the respons
     "balance":0
 }
 
-** Financial Records **
+# Financial Records #
 The financial records are transmitted and stored in pence, so to obtain the value in pounds, division by 100 is necessary.
 
-** Automated Testing **
+# Automated Testing #
 Unit and Integration testing of the REST API have been provided and can be found here:
-* Card Validator Tests
+## Card Validator Tests ##
+
 `src/test/java/com/reeves/simon/business/CreditCardValidatorTest.java`
 Contains unit test cases to verify the behaviour of the card validation routine.
-*  Integration Test
+
+##  Integration Test ##
+
 `/src/test/java/com/reeves/simon/IntegrationTest.java`
 Integration test which starts the REST service on a random port, and then make REST requests to the sevice to create an entity. The test then gets all the cards to verify the card details were created successfully.
 
-** Running **
+## Running ##
 After cloning the source, you can build the jar file form the root directory (which contains pom.mxl) with
 `mvn comile`
 
@@ -48,6 +51,6 @@ You can run the test with
 You can start the service with
 `java -jar target/CreditCardSystem-1.0.0-SNAPSHOT.jar`
 
-** Web UI **
+## Web UI ##
 When the service is running the Web UI is accessible from http://<host>:8080/. 
 The Web UI has been implemented with AngularJS and Bootstrap.
