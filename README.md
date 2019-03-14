@@ -39,18 +39,21 @@ Contains unit test cases to verify the behaviour of the card validation routine.
 ##  Integration Test ##
 
 `/src/test/java/com/reeves/simon/IntegrationTest.java`
-Integration test which starts the REST service on a random port, and then make REST requests to the sevice to create an entity. The test then gets all the cards to verify the card details were created successfully.
+The Integration test starts the REST service on a random port, and then makes REST requests to the sevice to create an entity. The test then gets all the cards to verify the card details were created successfully.
 
 ## Running ##
 After cloning the source, you can build the jar file form the root directory (which contains pom.mxl) with
+
 `mvn comile`
 
 You can run the test with
+
 `mvn test`
 
 You can start the service with
+
 `java -jar target/CreditCardSystem-1.0.0-SNAPSHOT.jar`
 
 ## Web UI ##
-When the service is running the Web UI is accessible from http://<host>:8080/. 
+When the service is running the Web UI is accessible from http://host:8080/. 
 The Web UI has been implemented with AngularJS and Bootstrap.
